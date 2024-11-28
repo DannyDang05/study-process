@@ -58,7 +58,34 @@ void nhonhat(int a[],int n){
     }
     cout<<"gia tri nho nhat trong mang:"<<minn<<endl;
 }
+void selectionsort(int a[],int n){
+    for(int i =0;i<n-1;i++){
+        for(int j = i+1;j<n;j++){
+            if(a[j]<a[i]) swap(a[i],a[j]);
+        }
+    }
+}
 
+void bubblesort(int a[],int n){
+    for(int i=n-1;i>=1;i--){
+        for ( int j=0;j<i;j++){
+            if(a[j]>a[j+1]) swap(a[j],a[j+1]);
+        }
+    }
+}
+
+
+void insertionsort(int a[],int n){
+    for(int i = 1;i<n;i++){
+        int key = a[i];
+        int j = i-1;
+        while(j>=0 && a[j]>key){
+            a[j+1] = a[j];
+            j--;
+        }
+        a[j+1] = key;
+    }
+}
 int main(){
     int a[100];
     int n ;
@@ -69,6 +96,8 @@ int main(){
     check(a,n);
     lonnhat(a,n);
     nhonhat(a,n);
+    insertionsort(a,n);
+    xuatmang(a,n);
     return 0;
 
 }
